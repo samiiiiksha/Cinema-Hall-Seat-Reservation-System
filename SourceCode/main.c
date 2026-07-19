@@ -66,7 +66,7 @@ void displaySeatMap(void) {
     for (i = 0; i < 5; i++) {
         printf("           ");
         for (j = 0; j < 6; j++) {
-            if (booked[i][j]) {
+            if (booked[i][j] == 1) {
                 if (i==0) {
                     printf("[      ]");
                 } else {
@@ -171,7 +171,7 @@ void searchBooking(void) {
         }
     }
 
-    if (!found) {
+    if (found==0) {
         printf("No bookings found under the name \"%s\".\n", searchh);
     }
 }
@@ -184,7 +184,7 @@ void showSummary(void) {
 
     for (i = 0; i < 5; i++) {
         for (j = 0; j < 6; j++) {
-            if (booked[i][j]) {
+            if (booked[i][j]==1) {
                 totalBooked++;
                 revenue += getPrice(i);
             }
