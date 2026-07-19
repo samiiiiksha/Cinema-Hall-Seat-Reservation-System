@@ -14,7 +14,7 @@ void showMenu(void);
 int getPrice(int rowIndex);
 int isValidSeat(int rowIndex, int seatIndex);
 
-int main(void) {
+int main() {
     int choice;
 
     printf("\n+-----+-----+-----+-----+-----+-----+-----+-----+\n");
