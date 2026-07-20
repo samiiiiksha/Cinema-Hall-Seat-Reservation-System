@@ -118,6 +118,10 @@ void bookSeat(void) {
     printf("Enter customer name: ");
     scanf("%s", name);
 
+    for (int i = 0; i<strlen(name); i++) {
+        name[i] = tolower(name[i]);
+    }
+
     booked[rowIndex][seatIndex] = 1;
     strcpy(customerName[rowIndex][seatIndex], name);
 
@@ -161,6 +165,10 @@ void searchBooking(void) {
 
     printf("\nEnter customer name to search: ");
     scanf("%s", searchh);
+
+    for (int i = 0; i<strlen(searchh); i++) {
+        searchh[i] = tolower(searchh[i]);
+    }
 
     for (i = 0; i < 5; i++) {
         for (j = 0; j < 6; j++) {
