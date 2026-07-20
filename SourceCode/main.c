@@ -24,7 +24,12 @@ int main() {
     do {
         showMenu();
         printf("Enter your choice: ");
-        scanf("%d", &choice);
+        if (scanf("%d", &choice) != 1) {
+            while (getchar()!='\n') {
+                choice = 0;
+                continue;
+            }
+        }
 
         switch (choice) {
             case 1:
@@ -98,6 +103,7 @@ void bookSeat(void) {
 
     printf("\nEnter row letter: ");
     scanf(" %c", &rowChar);
+
     rowChar = toupper(rowChar);
     rowIndex = rowChar - 'A';
 
@@ -117,6 +123,13 @@ void bookSeat(void) {
 
     printf("Enter customer name: ");
     scanf("%s", name);
+
+    for (int i = 0; i<strlen(name); i++) {
+        if (!isalpha(name[i])) {
+            printf("Wrong input!!");
+            return;
+        }
+    }
 
     for (int i = 0; i<strlen(name); i++) {
         name[i] = tolower(name[i]);
@@ -165,6 +178,13 @@ void searchBooking(void) {
 
     printf("\nEnter customer name to search: ");
     scanf("%s", searchh);
+
+    for (int i = 0; i<strlen(searchh); i++) {
+    if (!isalpha(searchh[i])) {
+        printf("Wrong input!!");
+        return;
+        }
+    }
 
     for (int i = 0; i<strlen(searchh); i++) {
         searchh[i] = tolower(searchh[i]);
